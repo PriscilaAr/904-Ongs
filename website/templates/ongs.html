@@ -3,15 +3,11 @@
 
 {% block conteudo %}
 
-{% if nome %}
-    <h1>Bem-vindx {{nome}}</h1>
+<h1>Lista de Ongs cadastradas</h1>
 
-{% else %}
-    <h1>Bem-vindx ao PETISK</h1>
-
-{% endif %}
-    <h2><strong>Cadastre-se para adoção</strong></h2>
-    <h2><a href="/pessoas"> Veja as pessoas cadastradas</a></h2>
+{% for ong in ongs %}
+    <p><strong>{{ong.nome}}</strong>--> {{ong.observacao}}</p>
+{% endfor %}
 
 <form action="/" method="post">
     {% csrf_token %}
@@ -55,4 +51,4 @@
     <input class="btn" type="submit" value="Cadastrar">  
 </form>
 
-{% endblock %}
+{% endblock %} 
